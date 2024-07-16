@@ -1,0 +1,7 @@
+# The password for the next level is stored in the only human-readable file in the inhere directory. Tip: if your terminal is messed up, try the “reset” command.
+solve:
+- cd inhere
+- using ls to show a file
+- using like method level 2,but it gonna take long.Instead using file ./* to see format file
+- and then cat ./-file07
+- password :4oQYVPkxZOOEOO5pTW81FB8j8lxXGUQw

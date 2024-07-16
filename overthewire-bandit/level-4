@@ -1,0 +1,7 @@
+# The password for the next level is stored in a hidden file in the inhere directory.
+solve:
+cd inhere
+if just using ls it won't appear because the file is hiding,so
+using ls -la or using ls -a
+then using cat ...Hiding-From-You to opened file.
+

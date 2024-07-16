@@ -1,0 +1,7 @@
+# The password for the next level is stored in a file called - located in the home directory
+# '-' is a special symbol in linux.
+solve : 
+try using ls.There a file called '-'
+to opened is using ./-
+and then get a password for the next bandit
+password: 263JGJPfgU6LtdEvgfWU1XP5yac29mFx

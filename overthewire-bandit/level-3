@@ -1,0 +1,7 @@
+# The password for the next level is stored in a file called spaces in this filename located in the home 
+directory
+solve:
+when using ls there a name file called spaces in this filename
+to open that file, just need a string "" so
+cat "spaces in this filename"
+then there a password for the next bandit: MNk8KNH3Usiio41PRUEoDFPqfxLPlSmx
