@@ -1,4 +1,25 @@
 # The password for the next level is stored in a file somewhere under the inhere directory and has all of the 
-following properties:
+# following properties:
+# 
+#    human-readable
+#    1033 bytes in size
+#    not executable
+#
 # ssh bandit5@bandit.labs.overthewire.org -p 2220
 # pw: 4oQYVPkxZOOEOO5pTW81FB8j8lxXGUQw
+solve:
+fyi:
+1. -b: to get the size in bytes
+2. <command> |<pattern> : after | it takes the output the first command (pattern)
+3. only look at files -type f (no dir/non-exec)
+
+- first cd inhere
+- after that using ls for look inside the inhere (or using ls -la)
+- check it one by one (or using file ./* for make it fast a format file)
+- based on https://mayadevbe.me/posts/overthewire/bandit/level6/
+- we can use file */{.,}* | grep "ASCII text" | grep -v ', with very long lines' to make it fast
+- using du command to filter it a size 
+- command du -b -a | grep 1033  
+- after that,check it is a file "with very long lines"
+- and then using cat ./mayberhere07/.file2 and viola you got a password for the next level :)
+- pw:HWasnPhtq9AVKe0dmk45nxy20cvUa6EG

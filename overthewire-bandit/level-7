@@ -1,0 +1,26 @@
+# The password for the next level is stored somewhere on the server and has all of the following properties:
+#
+#    owned by user bandit7
+#    owned by group bandit6
+#    33 bytes in size
+solve:
+# fyi                                                                         
+ls          - list directory contents                                                                                                                 
+cd          - change working directory
+cat         - concatenate files and print on the standard output
+file        - determine file type                                                      
+find        - search for files in a directory hierarchy
+
+command: find / type f -user bandit 7 -group bandit6 -size 33c
+explanation simple
+/:search entire directory
+type f:search for only file
+-user bandit7:search for files which are owned by user bandit7
+-gorup bandit6:search for files that belongs to the group bandit6
+-size 33c: look for files that exactly 33 bytes in size ("c" to represent 
+size in bytes)
+-if filtered out by sending error because permission denied
+- adding 2> /dev/null (NULL is a special device on Linux which destroys all 
+that fata is send to it)
+- after that using command cat /var/lib/dpkg/info/bandit7.password
+- voila the next password:morbNTDkSW6jIlUc0ymOdMaLnOlFVAaj
