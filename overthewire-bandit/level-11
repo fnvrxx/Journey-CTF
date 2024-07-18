@@ -1,0 +1,7 @@
+# The password for the next level is stored in the file data.txt, which contains base64 encoded data
+solve:
+#fyi base64 -d file
+# -d it means to decoded base64
+- to solve this level,using command "base64 -d data.txt"
+- voila you get a password for the next level 
+- dtR173fZKb0RRsDFSGsg2RWnpNVj3qRr

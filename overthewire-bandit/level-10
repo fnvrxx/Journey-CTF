@@ -1,0 +1,7 @@
+# The password for the next level is stored in the file data.txt in one of the few human-readable strings, 
+preceded by several ‘=’ characters.
+solve:
+- first using command "strings" able to 'human-readable' because file data.txt is a binary
+- after that, as we can see 'preceded by several "=" characters' so using command grep to show "="
+- command strings data.txt | grep "="
+- the password is :FGUW5ilLVJrxX9kMYMmlN4MgbpfMiqey
