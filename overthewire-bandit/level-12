@@ -3,7 +3,7 @@
 solve:
 # using command 'tr'  used to translate/ transform data from one form to another.
 # as we know, the letter have been rotataed by 13 positions (it called a rot13)
-- using command "cat data.txt | -tr 'A-Za-z' 'N-ZA-Mn-za-m'
+- using command "cat data.txt | tr 'A-Za-z' 'N-ZA-Mn-za-m'
 # remember tr <old_chars> <new_chars>
 # and because rot13 so it must be 'N-ZA-Mn-za-m'" because A->N...so on.
 # read https://en.wikipedia.org/wiki/ROT13 for more information

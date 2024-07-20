@@ -1,0 +1,50 @@
+# The password for the next level is stored in the file data.txt, which is 
+# a hexdump of a file that has been repeatedly compressed. For this level 
+# it may be useful to create a directory under /tmp in which you can work.Use 
+# mkdir with a hard to guess directory name. Or better, use the command 
+# “mktemp -d”. Then copy the datafile using cp, and rename it using mv(read 
+# the manpages!)
+# commands you may need to solve this level:
+- grep : digunakan untuk mencari pola teks dalam file
+- sort : mengurutkan baris dalam file teks berdasarkan huruf atau nilai
+- uniq : menghapus baris yang berulang dalam file yang sudah diurutkan
+- strings : menampilkan rangkaian karakter yang dapat dibaca manusia
+- base64 : decoded atau encoded data dalam skema code base64
+- tr : menggantikan atau menghapus karakter dari input lama ke input baru
+- tar : digunakan untuk mengarsipkan file ke dalam satu file
+- gzip : mengompres file menggunakan algoritma kompresi gnu
+ -d :decompress
+- xxd " membuat dump heksadesimal dari file biner atau mengonversi hexdump
+
+solve:
+- first using ls to check what kind of file
+- after that, using command "cat data.txt" it seems that file a compress 
+data as we know
+- based on we know, we need to cp in somewhere it called "/tmp"
+- so using command "cd /tmp"
+- after that,command "mktemp -d" and then command "cd /tmp/<got in 
+mktemp>"
+- need cp a file data.txt., using command "cp ~/data.txt ."
+- after that, change the format .txt to nothing (cause we know that file 
+is not format .txt)
+- using xxd -r hexdump (i called a file hexdump after change the format) > 
+data
+- after that, using command "file data" what kind of format file
+- it looks that file format is gzip, so we need change the format to 
+"data.gz"
+- after that, using command "gunzip" to decompress that file
+- look like there a file again but in not format, so we need to check it 
+again using command "file data"
+- after that,that file format is "bzip2" so we need to decompress that 
+file using command "bunzip2 data"
+- there a file called "data.out" like using before, using command "file 
+data" to check it a format file
+-turns on that file format is gzip, so we need change that format .out to 
+.gz and compress using command "gunzip data.gz"
+-after that, that format file change format tar, so we need decompress 
+that file tar using command "tar -xf data" -x it means execute and -f it 
+means used to spectify the filename
+-it looks that file change again,it called format data6.bin with format 
+bzip
+-like we used before,repeat that..after that you get a password
+-"the password is FO5dwFsc0cbaIiH0h8J2eUks2vdTDwAn"  
