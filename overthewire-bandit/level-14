@@ -1,0 +1,18 @@
+# The password for the next level is stored in /etc/bandit_pass/bandit14 
+# and can only be read by user bandit14. For this level, you don’t get the 
+# next password, but you get a private SSH key that can be used to log into 
+# the next level. Note: localhost is a hostname that refers to the machine 
+# you are working on
+solve:
+# based on https://david-varghese.medium.com/overthewire-bandit-level-13-level-14-2f8611a72c7d
+# to view what directory using command 'ls'
+# there a file sshkey.private
+# to connect bandit14 need to connect again using command ssh
+# so, it should be "ssh -i sshkey.private -p 2220 bandit14@localhost"
+# -i it means execute file flag sshkey.private
+# -p it means port 
+# bandit14@localhost is a target to execute it.
+# voila you get connect bandit14@bandit
+# to get a password you can using command "cat /etc/bandit_pass/bandit14"
+# MU4VWeTyJk8ROof1qqmcBPaLh7lDCPvS
+
