@@ -4,4 +4,33 @@
 # of those speak SSL and which don’t. There is only 1 server that will give the next 
 # credentials, the others will simply send back to you whatever you send to it.
 solve:
+commands you may need to solve this level:
+ssh - OpenSSH remote login client
+telnet - user interface to the TELNET protocol
+nc - TCP/IP swiss army knife
+s_client - SSL/TLS client program
+nmap - Network exploration tool and security/port
 
+from desc,we know we need to find out which of these port have a server listening.
+so we can use command "nmap" to check them.
+-to full command "nmap -sV -T4 -p 31000-32000 localhost"
+ -sV it means to identify the versions of the sercices/Probe open ports to 
+  determine service/version info
+ -T4 it means to used to increase the speed of the scan/  -T<0-5>: Set timing 
+  template (higher is faster)
+ -p it means to specifity port
+as we can see, port 31790 there is a service return message "Please enter the 
+correct current passoword".So we need a password.
+
+Now,we see that services is using SSL encryption.So we need openssl and s_client 
+command to connect to the port and pass the password of the current user
+commnad "openssl s_client --connect localhost:31790"
+as you can see, there a input.So we need using password bandit16 (for a 
+input).using command "cat /etc/bandit_pass/bandit16" and the password for level16 
+is kSkvUpMQ7lBYyCM4GBPvCvT1BfWRy0Dx.And you get a RSA PRIVATE KEY (keep it in cd 
+/tmp dir caused that only one can mkdir)
+After that, using command "ssh -i private.key(filesname) bandit17@localhost -p 
+2220"
+and voila you get access level 17.
+To get a password as usually "cat etc/bandit_pass/bandit16"
+voila you get next password is EReVavePLFHtFlFsjn3hyzMlvSuSAcRD 
