@@ -1,0 +1,18 @@
+# To gain access to the next level, you should use the setuid binary in 
+# the homedirectory. Execute it without arguments to find out how to use it. 
+# The password for this level can be found in the usual place 
+# (/etc/bandit_pass), after you have used the setuid binary.
+solve :
+-there a file read,write,and exec called "bandit20-do".
+-in descr we need know that files for password usually in /etc/bandit_pass
+-firstly, using command ls -l to know who is can using that file (as we 
+know it file in name bandit20)
+- let's try running file exec with command "./bandit20-do".It say that 
+"Run a command as another user Examplae: ./bandit20-do id"
+-let's another try using command for that example and it say 
+uid=11019(bandit19) gid=11019(bandit19) euid=11020(bandit20) 
+groups=11019(bandit19)
+- it means we need to exec using password bandit20 to do that using 
+command "./bandit20-do cat /etc/bandit_pass/bandit20"
+- voila you get the next password "0qXahG8ZjOVMN9Ghs7iOWsCfZyXOUbYO"
+

@@ -1,0 +1,15 @@
+# The password for the next level is stored in a file readme in the 
+# homedirectory. Unfortunately, someone has modified .bashrc to log you out 
+# when you log in with SSH.
+solve:
+- ssh: OpenSSH remote login client
+- ls : list directory contents
+- cat: concatenate files and print on the standard output
+
+- To solve this we need to access to bash shell,as we know this server 
+using ubuntu/linux so it should be in /bin/sh
+- command "ssh bandit18@bandit.labs.overthewire.org -p 2220 -t "/bin/sh" "
+- $ it should be in bash
+- try using "ls" there a file readme,to opened using "cat"
+- voila, you get next password cGWpMaKXVwDUNgPAVJbWYuGHVn9zl3j8
+
