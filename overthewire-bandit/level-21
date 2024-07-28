@@ -1,0 +1,26 @@
+# There is a setuid binary in the homedirectory that does the following: 
+# it makes a connection to localhost on the port you specify as a 
+# commandline argument. It then reads a line of text from the connection and 
+# compares it to the password in the previous level (bandit20). If the 
+# password is correct, it will transmit the password for the next level 
+# (bandit21). /etc/bandit_pass/bandit21
+solve: 
+- ssh :openSSH remote login client 
+- nc : arbitrary TCP and UDP connections and listens
+- cat : concatenate files and print on the standard
+- bash : GNU Bourne-Again Shell
+- screen emulation : screen manager with VT100/ANSI terminal
+- tmux : terminal multiplexer
+
+- first we know that file is binary.And if we running that file it is 
+error because the program need port on localhost with TCP
+- we need pass for bandit20 (using command "cat 
+/etc/bandit_pass/bandit20")
+- after that, using command "echo <pass_bandit20> | netcat -lp 1234 &"
+- l it means listening and p is a set port, so basically -lp is listener 
+on port that we set.And "&" is used to specify that we want the command to 
+run in the background.
+- Afterwards, using command "jobs" to see view all the processes/jobs on 
+the system
+- now let's we set using command "./suconnect 1234"
+-voila you get a next passwords "EeoULMCra2q0dSkYj561DX7s1CpBuOBt"  
