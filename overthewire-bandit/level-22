@@ -1,11 +1,30 @@
 # A program is running automatically at regular intervals from cron, the 
 # time-based job scheduler. Look in /etc/cron.d/ for the configuration and 
 # see what command is being executed.
-
-NOTE: Looking at shell scripts written by other people is a very useful 
-skill. The script for this level is intentionally made easy to read. If 
-you are having problems understanding what it does, try executing it to 
-see the debug information it prints.
-
 solve :
+ - cron : daemon to execute scheduled commands (Vixie Cron)
+ - crontab: maintain crontab files for individual users
+ - crontab(5) : tables for driving cron
+first,we know that there a file in dir /etc/cron.d/ so let's we check it 
+what insinde in that file.
+Afterwards, we need to look at the cronjob for bandit22 there there is an 
+shell script is being executed every second
+(for detailed information on the syntax of cron jobs refer the attached 
+resources) - MEDIUM DAVID-VARGHESE
+So,we need look the contents of the scripts in dir 
+/usr/bin/cronjob_bandit22.sh
+the output is
+#!/bin/bash
+chmod 644 /tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv
+cat /etc/bandit_pass/bandit22 > /tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv
 
+- let's understand it one by one
+- When we look at the script we see that it is creating an file called 
+t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv in the /tmp directory and then saving the 
+password for the next level into that file.
+- chmod 644 it means only admin can access and modified file what admin 
+wants
+- so let's see what inside it, using command cat 
+"/tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv"
+-volia you get a  password for next level 
+"tRae0UfB9v0UzbCdn9cY0gQnds9GF58Q"

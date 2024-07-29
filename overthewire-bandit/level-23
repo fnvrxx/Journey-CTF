@@ -1,0 +1,33 @@
+# A program is running automatically at regular intervals from cron, the 
+# time-based job scheduler. Look in /etc/cron.d/ for the configuration and 
+# see what command is being executed.
+
+NOTE: Looking at shell scripts written by other people is a very useful 
+skill. The script for this level is intentionally made easy to read. If 
+you are having problems understanding what it does, try executing it to 
+see the debug information it prints.
+
+solve :
+-first we need to check dir in /etc/cron.d/ using command "cd"
+-after that,using command "ls" to see what inside that file(s)
+-because we want to know the next level so try using command "cat 
+cronjob_bandit23"
+-there a output "@reboot bandit23 /usr/bin/cronjob_bandit23.sh  &> 
+/dev/null
+* * * * * bandit23 /usr/bin/cronjob_bandit23.sh  &> /dev/null"
+-so try using command "cat /usr/bin/cronjob_bandit23.sh" to see the output
+- afterwards, there a bash script 
+#!/bin/bash
+
+myname=$(whoami)
+mytarget=$(echo I am user $myname | md5sum | cut -d ' ' -f 1)
+
+echo "Copying passwordfile /etc/bandit_pass/$myname to /tmp/$mytarget"
+
+cat /etc/bandit_pass/$myname > /tmp/$mytarget
+- try echo "I am user bandit23" | md5sum | cut -d ' ' -f 1
+- there a bash "8ca319486bfbbc3663ea0fbe81326349"
+- as you can see the bash script, is not a password but it is a file to a 
+password so,using command "cat /tmp/8ca319486bfbbc3663ea0fbe81326349 to 
+see a password 
+- voila you get a the next password "0Zf11ioIjMVN551jX3CmStKLYqjk54Ga"
