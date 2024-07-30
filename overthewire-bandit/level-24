@@ -9,4 +9,72 @@ NOTE 2: Keep in mind that your shell script is removed once executed, so
 you may want to keep a copy around…
 
 solve:
+- first,we need to see dir insed /etc/cron.d/
+- afterwards, using command "cat cronjob_bandit24" to see a cron working
+- there a output, 
+@reboot bandit24 /usr/bin/cronjob_bandit24.sh &> /dev/null
+* * * * * bandit24 /usr/bin/cronjob_bandit24.sh &> /dev/null
+(for more detailed, cronjob in google :D)
+- afterwards,try using command "cat /usr/bin/cronjob_bandit24.sh" to see 
+inside a logic bash
+#!/bin/bash
 
+myname=$(whoami)
+
+cd /var/spool/$myname/foo
+echo "Executing and deleting all scripts in /var/spool/$myname/foo:"
+for i in * .*;
+do
+    if [ "$i" != "." -a "$i" != ".." ];
+    then
+        echo "Handling $i"
+        owner="$(stat --format "%U" ./$i)"
+        if [ "${owner}" = "bandit23" ]; then
+            timeout -s 9 60 ./$i
+        fi
+        rm -f ./$i
+    fi
+done
+Lets break down the script line by line:
+    The output of whoami command is getting saved in a variable called 
+myname (Since this script is being executed by bandit24 the output of 
+whoami will be bandit24 which is saved in the myname variable)
+    A folder called bandit24 exist in the /var/spool directory. The 
+working directory is changed to this folder.
+    Then a statement saying all the scripts that are present in the folder 
+/var/spool/bandit24 is being deleted is printed.
+    For loop is used to iterating through all the files in the directory 
+(.* : All files in current working directory)
+    A check is made to see if the current selected file is called . or .. 
+if not then the rest of the code is executed. (“.” means current directory 
+(bandit24) and “..” means the parent directory (spool))
+    The name of the current selected file is printed and then the 
+information about the owner of the file is saved in the variable “owner”.
+    An check is made to check if the owner of the current selected file is 
+“bandit23”. If it is then the current selected file is executed and sent 
+the KILL signal after waiting for 60 seconds and then deleted (-s flag in 
+timeout command is used to specify the signal to send to the command “9” 
+is an alias for the KILL command)
+
+So from this we understand that whatever file is saved in the folder 
+“bandit24” gets executed and if the file was created by “bandit23” then 
+after 60 seconds of execution the file is deleted. If we want the password 
+for “bandit24” we need to write a script that will be executed from the 
+bandit24 folder. The script that we write should get the password and save 
+in a location that we can access (/tmp directory)
+
+- using command "mktemp -d" to see a file temp that can we write 
+- afterwards, using command "cd /tmp/rand"
+- make a file "nano bandit24_pass.sh"
+- inside that file is 
+#!/bin/bash
+cat /etc/bandit_pass/bandit24 > /tmp/tmp.RkwDAUFuDQ
+- afterwards, permission change using chmod +rx bandit24_pass.sh
+- and make a file called "touch password"
+- change the permissions dir with "chmod 777 -R /tmp/rand"
+- change permission file password to "chmod +rwx password"
+- after that command "cp bandit24_pass.sh 
+/var/spool/bandit24/foo/bandit24_pass.sh"
+- voila you get a next password for level 24! 
+gb8KRRCsshuZXI0tUuR6ypOFjiZbf3G8 (using command "cat password")
+ 
