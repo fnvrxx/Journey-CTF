@@ -1,0 +1,9 @@
+# Good job getting a shell! Now hurry and grab the password for bandit27!
+solve:
+- after logging in bandit26,there a file called bandit27-do with format
+binary file
+- so to opened we need to command "./bandit27-do cat 
+/etc/bandit_pass/bandit27" cause we know the usually password for the next 
+level.
+- and voila you get next password for bandit27 
+"upsNCc7vzaRDx6oZC6GiR6ERwe1MowGB"

@@ -2,4 +2,24 @@
 # user bandit26 is not /bin/bash, but something else. Find out what it is, 
 # how it works and how to break out of it.
 solve:
+- ssh : OpenSSH remote login client
+- cat : concatenate files and print on the standard output
+- more : file perusal filter for crt viewing
+- vi : Vi Improved, a programmer's text editor
+- ls : list directory contents
+- id : print real and effective user and group IDs
+- pwd : print name of current/working directory
 
+- To solve this, need to understand more and vim.Assume that you understand
+- firsly we need connect bandit26 with command
+- ssh bandit26@localhost -p 2220 -i bandit26.sshkey
+- okay,we connect but after connect we logout(?)
+- we know that bash bandit26 is not from "/bin/bash" so we need to know what sheell bandit26 used
+- The “cat /etc/passwd | grep "bandit26" ” file consist of information regarding the users on the device along with the shell that is being used by each user.
+- we need to know "cat /usr/bin/showtext" what inside is.
+- okay, the point is shell used for bandit26 is used more
+- firsly, we need to make small our terminal so we can used more (but before doing that, connect first!)
+- after that "more" will be showed up
+- we know that "more" is used like a vim (just type "v")
+- so using command ":e /etc/bandit_pass/bandit26" 
+- and voila you get a password for bandit26 "s0773xxkk0MXfdqOfPRVr9L3jJBUOgCZ"
