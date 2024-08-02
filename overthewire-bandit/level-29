@@ -1,0 +1,14 @@
+# There is a git repository at 
+# ssh://bandit28-git@localhost/home/bandit28-git/repo via the port 2220. The 
+# password for the user bandit28-git is the same as for the user bandit28.
+
+# Clone the repository and find the password for the next level.
+solve:
+- same as level-28
+- afterwards, there a file called "README.md" to opened try using command 
+"cat"
+- but wait, why the password is xxxx?
+- let's check the commit using "git log"
+- there a 3 commit
+- let's try previously git commit using command "git checkout"
+- voila you get the next password "4pT1t5DENaYuqnqvadYs1oE4QLCdjmJ7"

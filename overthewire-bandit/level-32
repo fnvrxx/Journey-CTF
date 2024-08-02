@@ -1,0 +1,25 @@
+# There is a git repository at ssh://bandit31-git@localhost/home/bandit31-git/repo via the port 2220. The 
+# password for the user bandit31-git is the same as for the user bandit31.
+
+# Clone the repository and find the password for the next level.
+solve:
+- same as level 31
+- in file README.md we have a task that "
+This time your task is to push a file to the remote repository.
+
+Details:
+    File name: key.txt
+    Content: 'May I come in?'
+    Branch: master"
+- so we need to make a file called key.txt and the content "May I come 
+in?"
+- so we need make file using command echo "May I come in?" > key.txt
+- before using git add. let's see if there a called .gitignore?(using 
+command "ls -la")
+- ahh there a .gitignore which *.txt (it means format .txt does'nt git 
+add)
+- so we need remove that gitignore using command "rm"
+- after that using git add
+- and git commit -m "Key.txt"
+- and git push origin master and voila you get the next password 
+"3O9RfhqyAlVBEZpVb6LYStshZoqoSx5K"  

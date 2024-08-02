@@ -1,0 +1,13 @@
+# There is a git repository at 
+# ssh://bandit29-git@localhost/home/bandit29-git/repo via the port 2220.The 
+# password for the user bandit29-git is the same as for the user bandit29.
+
+# Clone the repository and find the password for the next level.
+solve:
+- same as level 29,but using command git branch -a to know all the branch
+- as we know we in branch master and the clue is password not in 
+production
+- so we need to switch the branch on dev, try using command "git checkout 
+dev"
+-using command "README.md" and voila you get a password for the next level 
+"qp30ex3VLz5MDG1n91YowTv4Q8l7CDZL"
