@@ -1,0 +1,8 @@
+# username: natas0
+# password: natas0
+# URL : http://natas0.natas.labs.overthewire.org
+solve:
+- firsly,click right button and then click "View Page Source"
+- there a password for the next level
+- voila you get a password for level 1: 0nzCigAq7t2iALyvU9xcHlYN4MlkIwlq
+

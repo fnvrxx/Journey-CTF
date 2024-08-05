@@ -1,0 +1,10 @@
+# Username: natas2
+# password: TguMNxKo1DSa1tujBLuZJnDUlCcUAPlI
+# URL : http://natas2.natas.labs.overthewire.org
+solve:
+- opened "View Page Source"
+- look there a tag images call souce "files/pixel.png"
+- let's try change dir to files which means 
+http://natas2.natas.labs.overthewire.org/files/
+- there a user.txt let's opened
+- voila you get a the next password:3gqisGdR0pjm6tpkDKdIWO2hSvchLeYH

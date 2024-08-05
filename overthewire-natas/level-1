@@ -1,0 +1,10 @@
+# Username: natas1
+# Password: 0nzCigAq7t2iALyvU9xcHlYN4MlkIwlq
+# URL:      http://natas1.natas.labs.overthewire.org
+solve:
+- if you using firefox,right bottom is not disable so you can find the 
+password like level-0
+- but if you not using firefox,try using comman "curl -u 
+natas1:0nzCigAq7t2iALyvU9xcHlYN4MlkIwlq 
+http://natas1.natas.labs.overthewire.org"
+- voila you get the next password:TguMNxKo1DSa1tujBLuZJnDUlCcUAPlI

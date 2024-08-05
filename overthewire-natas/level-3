@@ -1,0 +1,10 @@
+# Username: natas3
+# password: 3gqisGdR0pjm6tpkDKdIWO2hSvchLeYH
+# URL : http://natas3.natas.labs.overthewire.org
+solve:
+- to solve this we need to know file called "robots.txt"
+- so we need change link to the file
+- there a disallow /s3cr3t,let's try to change again
+- and then, there a users.txt let's opened and voila you get the next 
+password: QryZXc2e0zahULdHrtHxzyYkj59kUxLQ
+- Or you can use command "gobuster"
