@@ -1,0 +1,9 @@
+# Username : natas5
+# password : 0n35PkggAPm2zbEpOU802c0x0Msn1ToK
+solve:
+- to solve this,need understand burp suite
+- turn on intercept in burp
+- after that,try login the website
+- afterwards,in intercept click forward
+- in cookies there a loggedin=0,changed it to loggedin=1
+- voila you get the next password "0RoJwHdSKWFTYR5WuiAewauSuNaBXned"

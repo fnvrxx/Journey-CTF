@@ -2,4 +2,11 @@
 # Password : QryZXc2e0zahULdHrtHxzyYkj59kUxLQ
 # URL : http://natas4.natas.labs.overthewire.org
 solve:
-
+- to solve this need to understand burp suite (btw i'am using burp suite 
+community)
+- after that, try opened in proxy and make sure intercept is "on"
+- first, click button refresh page
+- and afterwards, check in burp suite and clic forward
+- there a called "Referef: http://natas4.natas.labs.overthewire.org/"
+- changed it to "natas5" and voila you get the next password 
+"0n35PkggAPm2zbEpOU802c0x0Msn1ToK"
