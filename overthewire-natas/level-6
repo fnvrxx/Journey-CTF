@@ -1,0 +1,12 @@
+# Username : natas6
+# Password : 0RoJwHdSKWFTYR5WuiAewauSuNaBXned
+solve:
+- first, click "view sourcecode"
+- there a php logic with format include
+- include in PHP it means statement takes all the text/code/markup that 
+exist in the specified file
+- so it means direct a file
+- let's try http://natas6.natas.labs.overthewire.org/includex/secret.inc
+- wait why empty?just blank white?let's check view page source and voila 
+you get a secret 
+
