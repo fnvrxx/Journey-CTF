@@ -1,0 +1,25 @@
+Verify
+Description:
+People keep trying to trick my players with imitation flags. I want to make sure they get the real thing! I'm going to provide the SHA-256 hash and a decrypt script to help you know that my flags are legitimate.
+ssh -p 58700 ctf-player@rhea.picoctf.net
+using the password f3b61b38. Accept the fingerprint with yes, and ls once connected to begin. Remember, in a shell, passwords are hidden!
+
+    Checksum: fba9f49bf22aa7188a155768ab0dfdc1f9b86c47976cd0f7c9003af2e20598f7
+    To decrypt the file once you've verified the hash, run ./decrypt.sh files/<file>.
+
+Solution:
+1. Langkah pertama adalah lakukan login vps dengan menggunakan 'ssh' (sesuai dari petunjuk di deskripsi)
+2. Setelah itu, masukkan password dari deskripsi tersebut
+3. setelah memasukkan password,akan masuk vps dari picogym.Jika dilakukan command 'ls' terdapat 3 files.Yaitu 
+checksum.txt,decrypt.sh,files
+4. AKan kita ujicoba sesuai dari deskripsi.Apabila kita langsung command '/decrypt.sh checksum.txt' maka
+akan mengeluarkan output "bad magic number
+Error: Failed to decrypt 'checksum.txt'. This flag is fake! Keep looking!"
+5. Yang berarti,checksum.txt bukanlah kunci yang kita cari (deskripsi menjebak kita)
+6. Ada di hint-2,kita disuruh membuat folder 'sha256sum <directory>'
+7. KIta tahu,bahwa file 'files' terlalu banyak kita buka satu per satu,sehingga kita perlu menggunakan 'grep'
+8. Sehingga kita menggunakan command 'sha256sum files/* | grep fba9f49bf22aa7188a155768ab0dfdc1f9b86c47976cd0f7c9003af2e20598f7', mengapa kita grep dari kunci checksum?karena
+command 'sha256sum' digunakan untuk mengecek file dari 'checksum'.
+9.Disaat ada 'files' memiliki nilai yangg sama dari 'checksum',maka akan ditampilkan nama 'files'-nya.
+10.Sehingga jika command poin 8 dijalankan,didapatkan output 'fba9f49bf22aa7188a155768ab0dfdc1f9b86c47976cd0f7c9003af2e20598f7  files/87590c24'
+11. Dan jika kita running './decrypt.sh files/87590c24' dan voila didapat kunci 'picoCTF{trust_but_verify_87590c24}'
