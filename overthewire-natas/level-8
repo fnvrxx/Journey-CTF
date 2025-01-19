@@ -1,4 +1,15 @@
 # Username : natas8
 # Password : xcoXLmzMkoIP9D7hlgPlh9XD7OgLAe5Q
 solve:
+1. Terdapat link 'View sourcecode',klik link tersebut
+2. Nah, setelah di klik, terdapat sebuah kode html,css,dan php didalam satu file
+3. Ada variabel $encodedSecret yang kita tidak tahu itu bentuknya apa
+4. Tapi,terdapat juga sebuah fungsi yang dimana
+function encodeSecret($secret){
+	return bin2hex(strrev(base64_encode($secret)));
+}
+5. Fungsi tersebut kemungkinan membuat hasil dari variabel $encodedSecret
+6. Nah kita balik,jadi seperti 'base64_decoded(strrev(hex2bin($encodedSecret)))'
+7. dan voila, kita mendapatkan kuncinya 'oubWYf2kBq' 
+8. Setelah itu, masukkan kunci tersebut ke inputnya dan kita mendapatkan password untuk level selanjutnya
 
