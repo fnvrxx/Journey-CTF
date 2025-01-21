@@ -2,4 +2,15 @@ Username: natas9
 Password: ZE1ck82lmdGIoErlhQgWND6j2Wzz6b6t
 
 Solution:
-
+1. Liat 'view sourcecode'
+2. terlihat ada method passthru,artinya apa?artinya passthru ini seperti 
+exec() kalau di bash, yang dimana jika kita melakukan command bash maka 
+bisa ter-eksekusi.Namun perlu kita tambahkan di awalnya dengan ; karena 
+bisa kita lakukan multiple command (kan awal di passhtru grep -i $key 
+dictionary.txt,Nah kalau kita tambahkan dari contain search nanti bacanya 
+seperti ini 'grep -i $key ditionary.txt ; ls -l')
+3. Seperti di natas 7, mari kita coba directnya ke 
+/etc/natas_webpass/natas10
+4. Dengan full command ; cat /etc/natas_webpass/natas10'
+5. Dan voila dapat pass level selanjutnya 
+t7I5VHvpa14sJTUGV0cbEsbYfFP2dmOu
