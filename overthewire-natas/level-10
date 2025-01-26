@@ -1,4 +1,12 @@
 # Username : natas10
 # Password : t7I5VHvpa14sJTUGV0cbEsbYfFP2dmOu
 Solution:
-
+untuk tantangan pada level ini, diperlukan pemahaman command grep.
+Dari artikel mcpa, kita akan melakukan grep valid command untuk menemukan
+kuncinya.Dan kita tidak perlu khawatir menggunakan -i switch,dan kita tahu
+bahwa grep akan berekspetasi untuk memiliki input yang akan dicari.Sehingga,
+kita coba dengan .* yang artinya kita akan mencari seluruh file dimanapun.
+Namun kita spesifikkan seperti level sebelumnya, menggunakan folder /etc/natas_webpass/natas11.
+Sehingga command yang harus kita input adalah '.* /etc/natas_webpass/natas11'
+dan voila kita mendapatkan password untuk level selanjutnya
+/etc/natas_webpass/natas11:UJdqkK1pTu6VLt9UHWAgRZz6sVUZ3lEk
