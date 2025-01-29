@@ -2,4 +2,31 @@
 # password : UJdqkK1pTu6VLt9UHWAgRZz6sVUZ3lEk
 
 solution:
+1. cookie for data :ClVLIh4ASCsCBE8lAxMacFMZV2hdVVotEhhUJQNVAmhSEV4sFxFeaAw%3D
+terlihat nilai terakhir %3D bahwa seharusnya diganti =, sebab merupakan
+percent-encoding.Sehingga, data cookie kita menjadi:
+HmYkBwozJw4WNyAAFyB1VUcqOE1JZjUIBis7ABdmbU1GIjEJAyIxTRg=
 
+2. Dilakukan mencari kunci cookie tanpa xor:
+poin 2 didapat dari function loadDAta($def){
+...
+$tempdata = json_decode(xor_encrypt(base64_decode($_COOKIE["data"])), true);
+...
+}
+karena kita sudah mengetahui cookie terbuat darimana,maka kita perlu melakukan
+hal yang serupa namun dibalik.Sehingga,
+$defaultdata = array( "showpassword"=>"no", "bgcolor"=>"#ffffff");
+echo base64_decode(json_encode($defaultdata);
+sehingga didapat cookie tanpa xor : eyJzaG93cGFzc3dvcmQiOiJubyIsImJnY29sb3IiOiIjZmZmZmZmIn0=
+
+3. untuk mendapatkan cookie dengan xor,kita sudah memilki data cookie dan data cookie yang asli
+sesuai proerti XOR, enggak peduli masukkan XORnya,hasilnya pasti mengulang nilai yang sama
+kita gunakan cyberchef.Yang pertama FROM BASE64 setelah itu kita masukkan XOR
+terlihat kata eDWo adalah kata yang diulangi terus menerus,sehingga bisa jadi
+itu kunci untuk XOR
+
+4. Sekarang simpan kunci XOR,masukkan data asli cookie yang dari web natas
+dan input ke cyberchef From Base64 dan XOR dengan kunci 'eDWo'.Terdapat nilainya sama seperti pada code source
+mari kita ubah balik showpassword: "yes". (XOR dan To Base64).dan masukkan nilai tersebut ke data, dan voila kita mendapatkan password untuk level selanjutnya 
+
+next password:yZdkjAYZRd3R7tq7T5kXMjMJlOIkzDeB
