@@ -2,4 +2,40 @@
 # password : yZdkjAYZRd3R7tq7T5kXMjMJlOIkzDeB
 
 solution:
+1. Seperti biasa, kita liat terlebih dahulu 'view Sourcecode' terlebih 
+dahulu
+2. Dari fungsi php tersebut terlihat terlalu pusing dan membingungkan 
+wkwkw,tapi mari kita bedah bersama-sama.
+ - fungsi genRandomString() bertanggung jawab untuk melakukan penamaan 
+random dengan banyak characternya 10.
+ - fungsi makeRandomPath(),makeRandomPathFromFilename() bertanggung jawab 
+untuk melakukan penempatan file.Jadi,kemungkinan nanti linknya  /<nama 
+file dijadikan random>/ 
+ - terdapat logic juga, jika upload file > 1000 (1Kb) maka akan 
+menghasilkan "File is too big"; jika tidak "Maka akan me-generate file 
+tersebut ke suatu tempat
 
+3. Setelah kita melakukan trace,saatnya kita mencoba untuk upload dengan 
+ukuran dibawah 1kb.Tapi, kita memerlukan format .php dan sesuatu yang bisa 
+dilakukan exec (eksekusi) oleh PHP.
+
+4. Mari kita buat file testing.php dengan berisi(dapat refrensi dari 
+learnhacking.io):
+<?php echo shell_exec('ls'); ?>
+
+5. Setelah itu kita upload,namun yang awalnya file kita php,menjadi .jpg 
+dan kita buka file tersebut tidak bisa.Hal ini terjadi karena <input 
+type="hidden" name="filename" value="<?php print genRandomString(); 
+?>.jpg" />. Mari kita ulang lagi langkah upload file dengan formatnya 
+diganti .jpg menjadi .php melalui inspect
+
+6. Dan setelah itu,file tersebut menjadi .php dan kita buka ternyata kita 
+berhasil melakukan Bypassing the client-side .jpg dan kita mendapatkan 
+webshell di webserver tersebut.
+
+7. Mari kita coba ganti menjadi <? echo shell_exec('cat 
+/etc/natas_webpass/natas13'); ?> (kenapa path-nya berada disitu?karena 
+berdasarkan level sebelumnya)
+
+8.Dan voila, kita mendapatkan password selanjutnya : 
+trbs5pCjCrkuSknBBKHhaBxq6Wm1j3LC 
